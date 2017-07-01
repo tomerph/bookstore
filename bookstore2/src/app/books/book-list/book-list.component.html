@@ -1,0 +1,38 @@
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success 	fa fa-book" (click)="insert()"> Add New Book</button>
+        <div class="list-group-item"
+        *ngIf="insertNewBook">
+          <div class="col-xs-12"></div>
+          
+         <p class="list-group-item-text"><b>Title</b>:&nbsp; &nbsp; &nbsp;    <input type="text"  [(ngModel)]="newTitle"></p><br>
+        
+        <p class="list-group-item-text"><b>Autuor:</b>   <input type="text"  [(ngModel)]="newAutuor"></p><br>
+         
+         <p class="list-group-item-text"><b>Date:</b> &nbsp;&nbsp;&nbsp;    <input type="text"
+          placeholder="yyyy-mm-dd" [(ngModel)]="newDate"></p><br>
+         
+         <p class="list-group-item-text"><b>Image:</b>&nbsp;  <input type="text"  [(ngModel)]="newImage"></p><br>
+          <button class="btn btn-success 	fa fa-book" (click)="onNew()"> Add</button>
+            
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+       
+        <app-book-item
+        *ngFor="let book of books ; let i=index "
+        [bookArray]="books"
+        [books]="book"
+        [index]="i"
+        ></app-book-item>
+        <hr>
+        <div class="list-group-item">
+      
+        <button class="btn btn-primary fa fa-floppy-o" (click)="onSave()"> Save All Changes</button>
+        </div>
+    </div>
+</div>

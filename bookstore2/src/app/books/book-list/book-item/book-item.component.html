@@ -1,0 +1,47 @@
+
+
+
+
+
+
+ <a href="#" class="list-group-item clearfix"
+        (click)="onSelected">
+        <div class="pull-left" *ngIf="edit">
+            <h4 class="list-group-item-heading">{{books.title | titlecase | removeNoneEnglish }}</h4>
+            <p class="list-group-item-text"> By :<b>{{books.autuor}}</b></p>
+            <p class="list-group-item-text">Realese Date: {{books.date | date: 'shortDate'}}</p>
+             
+              
+               
+            
+
+        </div>
+          <div class="pull-left" *ngIf="!edit">
+            <h4 class="list-group-item-heading">
+              <input type="text" placeholder="{{books.title | titlecase }}" [(ngModel)]="newTitle"/>
+              </h4>
+            <p class="list-group-item-text"> <input type="text" placeholder="{{books.autuor}}"
+            [(ngModel)]="newAutuor"/></p>
+            <p class="list-group-item-text"><input type="text" placeholder=" yyyy-dd-mm"
+            [(ngModel)]="newDate"/></p>
+            
+         
+            <button class="btn btn-success btn-xs fa fa-floppy-o" (click)="onEditSave()"> Save</button>
+              <button class="btn btn-danger btn-xs fa fa-remove" (click)="onCancel()"> cancel</button>
+              
+
+
+        </div>
+        <div class="pull-right">
+          <button class="fa fa-pencil  btn btn-success btn-xs" (click)="onEdit()"> Edit</button>
+          <button class=" fa fa-trash-o btn btn-danger btn-xs" (click)="onDelete()"> Delete</button><br>
+          <br>
+           <img class=" list-group-item-descreption pull-left "
+             src="{{books.imagePath}}" 
+             alt="{{books.title}}" 
+             style=" max-height:100px;
+             max-width:100px;"> 
+        </div>
+        
+
+        </a>
